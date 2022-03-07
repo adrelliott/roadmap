@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->text('body')->nullable();
             $table->string('url')->nullable();
             $table->integer('resourceable_id');
             $table->string('resourceable_type');

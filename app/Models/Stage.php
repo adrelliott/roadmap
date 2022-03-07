@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Stage extends Model
+class Stage extends BaseModel
 {
-    use HasFactory;
+
+    protected $fillable = [
+        'name', 'desciption', 'objective'
+    ];
 
     public function steps()
     {

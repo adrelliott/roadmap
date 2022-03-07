@@ -2,13 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
-class Roadmap extends Model
-{
-    use HasFactory;
-    
+class Roadmap extends BaseModel
+{    
+
+    protected $fillable = [
+        'name', 'description', 'slug' // maybe remove the slug? Add as a mutator
+    ];
+
+    protected static function booted()
+    {
+        static::creating(function ($roadmap) {
+            $roadmap->slug = Str::slug(Str::limit($roadmap->name, 15), '-');
+        });
+    }
+
+    // public function setSlugAttribute()
+    // {
+    //     return Str::slug(Str::limit($this->name, 15), '-');
+    // }
 
     public function stages()
     {
