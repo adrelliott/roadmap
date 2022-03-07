@@ -13,8 +13,15 @@ class Task extends Model
         'name', 'description', 'due_at'
     ];
 
+    public $timestamps = false;
+
     public function taskable()
     {
         return $this->morphTo();
+    }
+
+    public function notes()
+    {
+        return $this->morphMany(Note::class, 'noteable');
     }
 }

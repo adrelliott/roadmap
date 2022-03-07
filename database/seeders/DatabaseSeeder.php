@@ -25,6 +25,10 @@ class DatabaseSeeder extends Seeder
             TenantAndUserSeeder::class,
             RoadmapSeeder::class,
             UsersInvitedToRoadmapSeeder::class,
+            ResourceSeeder::class,
+            TaskSeeder::class,
+            NoteSeeder::class,
+            // CommentSeeder::class,
         ]);
         
     }

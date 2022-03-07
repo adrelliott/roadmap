@@ -22,7 +22,7 @@ class RoadmapSeeder extends Seeder
         $tenants = Tenant::all();
 
         foreach ($tenants as $tenant) {
-            Roadmap::factory()->count(3)
+            Roadmap::factory()->count(5)
             ->has(Stage::factory()
                 ->count(3)
                 ->state(new Sequence(
