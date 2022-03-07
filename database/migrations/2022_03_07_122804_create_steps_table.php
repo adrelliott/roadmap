@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('objective')->nullable();
+            $table->integer('position')->default(1);
+            $table->foreignId('stage_id')->constrained();
             $table->timestamps();
         });
     }

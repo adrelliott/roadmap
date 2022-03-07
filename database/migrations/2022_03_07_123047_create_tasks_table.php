@@ -15,7 +15,15 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
+            $table->text('description');
+            $table->foreignId('createdby_user_id')->constrained('users'); // foreightIdFor?
+            $table->foreignId('assignedto_user_id')->constrained('users');
+            $table->integer('taskable_id');
+            $table->string('taskable_type');
+            $table->timestamp('due_at')->nullable();
+            $table->timestamp('created_at')->nullable();
+            // $table->timestamps();
         });
     }
 

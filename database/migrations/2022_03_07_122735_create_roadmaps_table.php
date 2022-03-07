@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('roadmaps', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->index();
+            $table->string('name');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tenants', function (Blueprint $table) {
+        Schema::create('roadmap_user', function (Blueprint $table) {
             $table->id();
-            $table->string('tenant_name');
-            $table->text('description')->nullable();
-            $table->timestamps();
+            $table->foreignId('roadmap_id');
+            $table->foreignId('user_id');
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tenants');
+        Schema::dropIfExists('roadmap_user');
     }
 };

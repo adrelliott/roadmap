@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->text('body');
+            $table->foreignId('user_id')->constrained();
+            $table->integer('noteable_id');
+            $table->string('noteable_type');
             $table->timestamps();
         });
     }
