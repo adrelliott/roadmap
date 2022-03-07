@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('objective')->nullable();
             $table->integer('position')->default(1);
-            $table->foreignUuid('roadmap_id')->constrained();
+            $table->foreignid('roadmap_id')->constrained();
             $table->timestamps();
         });
     }

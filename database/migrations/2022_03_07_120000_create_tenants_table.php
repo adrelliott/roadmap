@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tenants', function (Blueprint $table) {
             $table->id();
-            $table->string('tenant_name');
+            $table->string('name');
             $table->text('description')->nullable();
             $table->timestamps();
         });

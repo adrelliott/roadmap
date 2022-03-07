@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Stage extends Model
 {
     use HasFactory;
+
+    public function steps()
+    {
+        return $this->hasMany(Step::class);
+    }
 }

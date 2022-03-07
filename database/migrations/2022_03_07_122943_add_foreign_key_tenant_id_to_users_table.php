@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId('tenant_id')->constrained();
+
+            $table->boolean('is_admin')->default(FALSE);
         });
     }
 
@@ -26,7 +28,9 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropForeign(['tenant_id']);
+
+            $table->dropColumn('is_admin');
         });
     }
 };

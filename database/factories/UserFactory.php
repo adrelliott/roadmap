@@ -30,6 +30,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'tenant_id' => 1,
         ];
     }
 
@@ -66,4 +67,20 @@ class UserFactory extends Factory
             'ownedTeams'
         );
     }
+
+    /**
+     * Indicate that the user is an admin.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function isAdmin()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'is_admin' => TRUE,
+                'name' => 'ADMIN ' . $this->faker->name()
+            ];
+        });
+    }
+
 }
