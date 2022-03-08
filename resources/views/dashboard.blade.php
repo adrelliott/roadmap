@@ -1,15 +1,22 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
+    <div class="flex gap-6 max-w-7xl mx-auto mt-12">
+        @foreach($data->roadmaps as $roadmap)
+            <div class="sm:grow border border-gray-200 bg-white rounded-sm shadow-sm px-8 py-6">
+                <h2 class="text-base sm:text-2xl font-semibold leading-4 text-gray-800 ">
+                    {{ $roadmap->name }}
+                </h2>
+                <p class="text-sm leading-5 mt-2 text-gray-500 sm:w-10/12">
+                    {{ $roadmap->description ?? 'Decription couw,d hgo hetsh ehstgdte tdget' }}
+                </p>
+                <div class="mt-6">
+                    <x-progress-bar percentage="85" />
+                    <div class="flex justify-end mt-8">
+                        <x-button class="ml-4" link="/roadmaps/1">
+                            View Roadmap
+                        </x-button>
+                    </div>
+                </div>
             </div>
-        </div>
+        @endforeach
     </div>
 </x-app-layout>

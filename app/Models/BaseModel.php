@@ -9,6 +9,11 @@ class BaseModel extends Model
 {
     use HasFactory;
 
+    // public static function boot()
+    // {
+    //     Model::preventLazyLoading();
+    // }
+
     public function resources()
     {
         return $this->morphMany(Resource::class, 'resourceable');

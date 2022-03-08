@@ -63,4 +63,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class, 'assignedto_user_id');
     }
+
+    public function roadmaps()
+    {
+        return $this->belongsToMany(Roadmap::class);
+    }
 }

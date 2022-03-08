@@ -11,6 +11,11 @@ class Roadmap extends BaseModel
         'name', 'description', 'slug' // maybe remove the slug? Add as a mutator
     ];
 
+    // protected $with = [
+    //     'notes', 'tasks', 'resources',
+    //     'stages', 'stages.steps', 
+    // ];
+
     protected static function booted()
     {
         static::creating(function ($roadmap) {
@@ -32,4 +37,19 @@ class Roadmap extends BaseModel
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function steps()
+    {
+        return $this->hasManyThrough(Step::class, Stage::class);
+    }
+
+    public function taskCount()
+    {
+        return $this->tasks()->count();
+    }
+
+    // public function stepsCount()
+    // {
+    //     return $this->steps->count();
+    // }
 }

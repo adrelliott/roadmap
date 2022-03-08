@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Roadmap;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,7 +15,11 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        // find roadmaps for this user
-        // load 
+        $data = auth()->user()
+            ->load([
+                'roadmaps', 'roadmaps.stages', 'roadmaps.steps'
+            ]);
+        
+        return view('dashboard', compact('data'));
     }
 }
