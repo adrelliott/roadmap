@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('position')->default(1);
             $table->foreignId('stage_id')->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

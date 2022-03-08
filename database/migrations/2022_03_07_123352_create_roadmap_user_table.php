@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('roadmap_id');
             $table->foreignId('user_id');
+            $table->json('completed_steps')->nullable();
+            $table->timestamps();
         });
     }
 

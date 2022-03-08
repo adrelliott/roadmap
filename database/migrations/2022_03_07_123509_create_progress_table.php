@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('progress', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->integer('progressable_id');
-            $table->string('progressable_type');
-            $table->timestamps();
-        });
+        // Schema::create('progress', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('user_id');
+        //     $table->integer('progressable_id');
+        //     $table->string('progressable_type');
+        //     $table->timestamps();
+        // });
     }
 
     /**

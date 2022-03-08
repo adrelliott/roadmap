@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->foreignId('tenant_id')->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

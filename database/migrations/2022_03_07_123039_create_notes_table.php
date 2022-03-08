@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('noteable_id');
             $table->string('noteable_type');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

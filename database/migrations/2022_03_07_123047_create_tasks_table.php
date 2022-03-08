@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('taskable_type');
             $table->timestamp('due_at')->nullable();
             $table->timestamp('created_at')->nullable();
+            $table->softDeletes();
             // $table->timestamps();
         });
     }

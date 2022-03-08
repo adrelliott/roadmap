@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('position')->default(1);
             $table->foreignid('roadmap_id')->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

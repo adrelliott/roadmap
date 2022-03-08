@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('commentable_id');
             $table->string('commentable_type');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

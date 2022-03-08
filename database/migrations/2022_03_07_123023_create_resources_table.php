@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('resourceable_id');
             $table->string('resourceable_type');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
