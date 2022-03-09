@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roadmap_user', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('roadmap_id');
+        Schema::create('step_user', function (Blueprint $table) {
+            // $table->id();
+            $table->foreignId('step_id');
             $table->foreignId('user_id');
-            // $table->json('completed_steps')->nullable();
-            $table->timestamps();
+            $table->timestamp('started_at')->nullable();
+            $table->timestamp('completed_at')->nullable();
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roadmap_user');
+        Schema::dropIfExists('step_user');
     }
 };

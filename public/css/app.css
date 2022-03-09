@@ -1142,6 +1142,12 @@ select {
   width: -moz-max-content;
   width: max-content;
 }
+.w-3\/6 {
+  width: 50%;
+}
+.w-3\/5 {
+  width: 60%;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1673,6 +1679,14 @@ select {
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+.text-green-800 {
+  --tw-text-opacity: 1;
+  color: rgb(22 101 52 / var(--tw-text-opacity));
+}
+.text-green-700 {
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

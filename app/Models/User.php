@@ -68,4 +68,27 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Roadmap::class);
     }
+
+    public function steps()
+    {
+        return $this->belongsToMany(Step::class)
+            ->withPivot('started_at', 'completed_at');
+    }
+
+    // public function startedSteps()
+    // {
+    //     return $this->steps
+    //         ->whereNotNull('started_at')
+    //         ->whereNull('completed_at')
+    //         ->sortBy('position');
+    // }
+
+    // public function completedSteps()
+    // {
+    //     return $this->steps
+    //         ->whereNotNull('started_at')
+    //         ->whereNotNull('completed_at')
+    //         ->sortBy('position');
+    // }
+
 }
