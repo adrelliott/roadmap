@@ -13,4 +13,9 @@ class Stage extends BaseModel
     {
         return $this->hasMany(Step::class);
     }
+
+    public function roadmap()
+    {
+        return $this->belongsTo(Roadmap::class);
+    }
 }

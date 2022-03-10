@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\RoadmapController;
-use App\Http\Livewire\Roadmap\Overview;
-use App\Http\Livewire\RoadmapShow;
+use App\Http\Livewire\App\Dashboard;
+use App\Http\Livewire\App\RoadmapShow;
+use App\Http\Livewire\App\StepShow;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,8 +24,9 @@ Route::middleware(['auth:sanctum', 'verified'])
     ->prefix('app/')
     ->name('app.')
     ->group( function() {
-        Route::get('/dashboard', DashboardController::class)->name('dashboard');
-        Route::get('/roadmaps/{roadmap}', RoadmapShow::class)->name('roadmaps');
+        Route::get('/dashboard', Dashboard::class)->name('dashboard');
+        Route::get('/roadmaps/{roadmap}', RoadmapShow::class)->name('roadmap');
+        Route::get('/steps/{step}', StepShow::class)->name('step');
         // Route::get('/roadmaps/{roadmap}', RoadmapController::class)->name('roadmaps');
     });
     

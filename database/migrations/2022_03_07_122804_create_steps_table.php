@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('objective')->nullable();
             $table->integer('position')->default(1);
+            $table->foreignId('roadmap_id')->constrained();
             $table->foreignId('stage_id')->constrained();
             $table->timestamps();
             $table->softDeletes();

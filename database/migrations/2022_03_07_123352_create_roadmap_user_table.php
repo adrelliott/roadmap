@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('roadmap_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('roadmap_id');
             $table->foreignId('user_id');
-            // $table->json('completed_steps')->nullable();
+            $table->foreignId('roadmap_id');
+            $table->json('completed_steps')->nullable();
+            $table->timestamp('started_at')->nullable();
+            $table->timestamp('completed_at')->nullable();
             $table->timestamps();
         });
     }

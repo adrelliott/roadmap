@@ -8,8 +8,20 @@ class Step extends BaseModel
         'name', 'description', 'objective'
     ];
 
-    public function users()
+    // public function users()
+    // {
+    //     return $this->belongsToMany(User::class);
+    // }
+
+    public function roadmap()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(Stage::class);
     }
+
+    public function stage()
+    {
+        return $this->hasOne(Stage::class);
+    }
+
+    
 }

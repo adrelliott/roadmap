@@ -8,7 +8,7 @@ class Roadmap extends BaseModel
 {    
 
     protected $fillable = [
-        'name', 'description', 'slug' // maybe remove the slug? Add as a mutator
+        'name', 'description' // maybe remove the slug? Add as a mutator
     ];
 
     // protected $with = [
@@ -16,17 +16,17 @@ class Roadmap extends BaseModel
     //     'stages', 'stages.steps', 
     // ];
 
-    protected static function booted()
-    {
-        static::creating(function ($roadmap) {
-            $roadmap->slug = Str::slug(Str::limit($roadmap->name, 15), '-');
-        });
-    }
-
-    // public function setSlugAttribute()
+    // protected static function booted()
     // {
-    //     return Str::slug(Str::limit($this->name, 15), '-');
+    //     static::creating(function ($roadmap) {
+    //         $roadmap->slug = Str::slug(Str::limit($roadmap->name, 15), '-');
+    //     });
     // }
+
+    public function steps()
+    {
+        return $this->hasMany(Step::class);
+    }
 
     public function stages()
     {
@@ -38,9 +38,12 @@ class Roadmap extends BaseModel
         return $this->belongsToMany(User::class);
     }
 
-    public function steps()
+    public function progress()
     {
-        return $this->hasManyThrough(Step::class, Stage::class);
+        return $this->users()
+            ->using(Progress::class)
+            ->withPivot('completed_steps')
+            ->withTimestamps();
     }
 
     public function taskCount()

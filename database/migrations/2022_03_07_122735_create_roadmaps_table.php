@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('roadmaps', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->index()->nullable();
+            // $table->string('slug')->index()->nullable();
             $table->string('name');
             $table->text('description')->nullable();
             $table->foreignId('tenant_id')->constrained();

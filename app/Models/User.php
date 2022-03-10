@@ -66,14 +66,17 @@ class User extends Authenticatable
 
     public function roadmaps()
     {
-        return $this->belongsToMany(Roadmap::class);
+        return $this->belongsToMany(Roadmap::class)
+            ->using(Progress::class)
+            ->withPivot(['completed_steps', 'started_at', 'completed_at'])
+            ->withTimestamps();
     }
 
-    public function steps()
-    {
-        return $this->belongsToMany(Step::class)
-            ->withPivot('started_at', 'completed_at');
-    }
+    // public function roadmapProgress()
+    // {
+    //     return $this->belongsToMany(Step::class)
+    //         ->withPivot('started_at', 'completed_at');
+    // }
 
     // public function startedSteps()
     // {

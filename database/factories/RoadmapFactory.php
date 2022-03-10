@@ -18,7 +18,7 @@ class RoadmapFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(3),
-            'slug' => $this->faker->slug(),
+            // 'slug' => $this->faker->slug(),
         ];
     }
 }

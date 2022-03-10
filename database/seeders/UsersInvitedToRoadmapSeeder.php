@@ -22,7 +22,8 @@ class UsersInvitedToRoadmapSeeder extends Seeder
         foreach ($tenants as $tenant) {
             $tenant->roadmaps->each(function ($roadmap) use($tenant) {
                 $roadmap->users()->sync(
-                    $tenant->users->random(5)->pluck('id')
+                    $tenant->users->pluck('id')
+                    // $tenant->users->random(5)->pluck('id')
                 );
             });
         }

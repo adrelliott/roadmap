@@ -3,11 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Progress extends Model
+class Progress extends Pivot
 {
-    use HasFactory;
+    // use HasFactory;
+    protected $casts = [
+        'completed_steps' => 'array'
+    ];
 
+    protected $table = 'roadmap_user';
     
 }
